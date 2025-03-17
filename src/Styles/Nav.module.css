@@ -39,7 +39,11 @@
 }
 
 .nav .brand img {
-  width: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  height: 50px;
+  transform: scale(1);
+  width: 50px;
   margin-right: 10px;
 }
 
