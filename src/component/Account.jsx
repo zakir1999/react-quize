@@ -1,13 +1,13 @@
+import { Link } from "react-router-dom";
 import classes from "../Styles/Account.module.css";
-
 export default function Account() {
   return (
     <div className={classes.account}>
       <span className="material-icons-outlined" title="Account">
         account_circle
       </span>
-      <a href="signup.html">Signup</a>
-      {/* <!-- <span className="material-icons-outlined" title="Logout"> logout </span> --> */}
+      <Link to="/Signup">Signup</Link>
+      <Link to="/Login">SignIn</Link>
     </div>
   );
 }

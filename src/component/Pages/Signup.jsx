@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import classes from "../../Styles/Signup.module.css";
 import Button from "../Button";
 import Checkbox from "../Checkbox";
@@ -28,7 +29,7 @@ export default function Signup() {
             <span>Submit</span>
           </Button>
           <div className="info">
-            Already have an account? <a href="login.html">Login</a> instead.
+            Already have an account? <Link to="/Login">Login</Link> instead.
           </div>
         </Form>
       </div>
