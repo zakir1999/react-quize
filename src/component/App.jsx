@@ -1,12 +1,16 @@
 import "../Styles/App.css";
 import Layout from "./Layout.jsx";
-import Home from "./Pages/Home.jsx";
-import Signup from "./Pages/Signup.jsx";
+import Quize from "./Pages/Quize";
+// import Home from "./Pages/Home";
+// import SignIn from "./Pages/SignIn.jsx";
 function App() {
   return (
     <Layout>
-      <Home />
-      <Signup />
+      {/* <Home></Home> */}
+      <Quize />
+      {/* <Signup /> */}
+
+      {/* <SignIn></SignIn> */}
     </Layout>
   );
 }
