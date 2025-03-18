@@ -1,4 +1,4 @@
-import image from "../assets/images/3.jpg";
+import image from "../assets/images/zakir.png";
 import classes from "../Styles/Video.module.css";
 export default function Video() {
   return (

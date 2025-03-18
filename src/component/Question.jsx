@@ -5,7 +5,7 @@ export default function Question() {
     <div className={classes.question}>
       <div className={classes.qtitle}>
         <span className="material-icons-outlined"> help_outline </span>
-        Here goes the question from Learn with Sumit?
+        Here goes the question from Learn with Zakir?
       </div>
       <Answers />
     </div>

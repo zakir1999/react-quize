@@ -8,8 +8,8 @@ export default function Nav() {
       <ul>
         <li>
           <Link to="/" className={classes.brand}>
-            <img src={logo} alt="Learn with Sumit Logo" />
-            <h3>Zakir</h3>
+            <img src={logo} alt="Learn with Zakir" />
+            <h3>Learn with Zakir</h3>
           </Link>
         </li>
       </ul>
