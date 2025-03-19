@@ -6,10 +6,10 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { React, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import "../firebase";
 
-const AuthContext = React.createContext();
+const AuthContext = createContext();
 
 export function useAuth() {
   return useContext(AuthContext);
@@ -31,7 +31,7 @@ export function AuthProvider({ children }) {
     await createUserWithEmailAndPassword(auth, email, password);
 
     //update profile
-    await updateProfile(auth.currentUser, { displayName: usename });
+    await updateProfile(auth.currentUser, { displayName: username });
 
     const user = auth.currentUser;
     setCurrentUser({
