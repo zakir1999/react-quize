@@ -58,7 +58,7 @@ export default function Quize() {
 
   function prevQuestions() {
     if (currentQuestion >= 1 && currentQuestion < questions.length) {
-      setCurrentQuestion((prev) => prev + 1);
+      setCurrentQuestion((prev) => prev - 1);
     }
   }
   async function submit() {
@@ -92,6 +92,7 @@ export default function Quize() {
           <ProgressBar
             next={nextQuestion}
             prev={prevQuestions}
+            submit={submit}
             progress={percentage}
           />
           <MiniPlayer />
