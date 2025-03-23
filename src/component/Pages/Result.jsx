@@ -5,7 +5,7 @@ import Analysis from "../Analysis";
 import Summary from "../Summary";
 export default function Result() {
   const { id } = useParams();
-  const { location } = useLocation();
+  const location = useLocation();
   const { state } = location || {};
   const { qna = [] } = state || {};
   const { loading, error, answers } = useAnswers(id);
@@ -13,6 +13,11 @@ export default function Result() {
 
   function calculate() {
     let score = 0;
+
+    if (!qna || qna.length === 0) {
+      console.error("qna is undefined or empty");
+      return score;
+    }
     answers.forEach((question, index1) => {
       let correctindex = [],
         checkedindex = [];

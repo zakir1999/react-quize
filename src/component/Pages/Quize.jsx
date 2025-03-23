@@ -73,7 +73,7 @@ export default function Quize() {
       [id]: qna,
     });
 
-    navigate(`/Result/${id}`, { state: { qna } });
+    navigate(`/Result/${id}`, { state: { qna: qna } });
   }
 
   const percentage =
@@ -98,7 +98,7 @@ export default function Quize() {
             submit={submit}
             progress={percentage}
           />
-          <MiniPlayer />
+          <MiniPlayer id={id} title={qna[currentQuestion].title} />
         </>
       )}
     </>
