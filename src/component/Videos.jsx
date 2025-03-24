@@ -18,7 +18,7 @@ export default function Videos() {
         >
           {videos.map((video) =>
             video.noq > 0 ? (
-              <Link to={`/Quize/${video.youtubeID}`}>
+              <Link to={`/Quize/${video.youtubeID}`} key={video.youtubeID}>
                 <Video
                   title={video.title}
                   id={video.youtubeID}
@@ -26,12 +26,13 @@ export default function Videos() {
                 />
               </Link>
             ) : (
-              <Video
-                title={video.title}
-                id={video.youtubeID}
-                noq={video.noq}
-                key={video.youtubeID}
-              />
+              <div key={video.youtubeID}>
+                <Video
+                  title={video.title}
+                  id={video.youtubeID}
+                  noq={video.noq}
+                />
+              </div>
             )
           )}
         </InfiniteScroll>

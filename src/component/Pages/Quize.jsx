@@ -11,9 +11,10 @@ const initialState = null;
 const reducer = (state, action) => {
   switch (action.type) {
     case "questions":
-      action.value.forEach((question) => {
-        question.options.forEach((option) => {
+      action.value.forEach((question, index) => {
+        question.options.forEach((option, index) => {
           option.checked = false;
+          option.id = option.id || `option-${index}`;
         });
       });
       return action.value;
@@ -33,6 +34,7 @@ export default function Quize() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [qna, dispatch] = useReducer(reducer, initialState);
   const { currentUser } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch({
@@ -57,8 +59,8 @@ export default function Quize() {
   }
 
   function prevQuestions() {
-    if (currentQuestion >= 1 && currentQuestion < questions.length) {
-      setCurrentQuestion((prev) => prev + 1);
+    if (currentQuestion >= 1 && currentQuestion <= questions.length) {
+      setCurrentQuestion((prev) => prev - 1);
     }
   }
   async function submit() {
@@ -70,8 +72,8 @@ export default function Quize() {
     await set(resultRef, {
       [id]: qna,
     });
-    const navigate = useNavigate();
-    navigate(`/result/${id}`, { state: { qna } });
+
+    navigate(`/Result/${id}`, { state: { qna: qna } });
   }
 
   const percentage =
@@ -86,15 +88,17 @@ export default function Quize() {
           <h1>{qna[currentQuestion].title}</h1>
           <h4>Question can have multiple answers</h4>
           <Answers
+            input
             options={qna[currentQuestion].options}
             handleChange={handleAnswerChange}
           />
           <ProgressBar
             next={nextQuestion}
             prev={prevQuestions}
+            submit={submit}
             progress={percentage}
           />
-          <MiniPlayer />
+          <MiniPlayer id={id} title={qna[currentQuestion].title} />
         </>
       )}
     </>
