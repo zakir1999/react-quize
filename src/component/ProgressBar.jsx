@@ -3,8 +3,9 @@ import classes from "../Styles/ProgressBar.module.css";
 import Button from "./Button";
 export default function ProgressBar({ next, prev, submit, progress }) {
   const [tooltip, setTooltip] = useState(false);
-  const tooltipRef = useRef();
+  const tooltipRef = useRef(null);
   function toggleTooltip() {
+    if (!toggleTooltip.current) return;
     if (tooltip) {
       setTooltip(false);
       tooltipRef.current.style.display = "none";
@@ -21,7 +22,9 @@ export default function ProgressBar({ next, prev, submit, progress }) {
         <span className="material-icons-outlined"> arrow_back </span>
       </div>
       <div className={classes.rangeArea}>
-        <div className={classes.tooltip}>{progress}% Cimplete!</div>
+        <div ref={tooltipRef} className={classes.tooltip}>
+          {progress}% Cimplete!
+        </div>
         <div className={classes.rangeBody}>
           <div
             className={classes.progress}

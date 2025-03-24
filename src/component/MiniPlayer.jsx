@@ -32,7 +32,14 @@ export default function MiniPlayer({ title, id }) {
         {" "}
         close{" "}
       </span>
-      <ReactPlayer url={videourl} />
+      <ReactPlayer
+        className={classes.img}
+        url={videourl}
+        width="300px"
+        height="168px"
+        playing={status}
+        controls
+      />
       <p>{title}</p>
     </div>
   );
