@@ -1,5 +1,5 @@
 /* answers component */
-.answers {
+/* .answers {
   display: grid;
   grid-template-rows: repeat(5, auto);
   gap: 10px;
@@ -52,10 +52,10 @@
 .wrong {
   background: var(--dangerRed) !important;
   font-weight: 600;
-}
+} */
 
 /* progress bar component */
-.progressBar {
+/* .progressBar {
   width: calc(100vw - 100px);
   height: 65px;
   position: fixed;
@@ -166,10 +166,10 @@
   left: 50%;
   position: absolute;
   transform: rotate(45deg) translate(-50%, 100%);
-}
+} */
 
 /* mini player component */
-.miniPlayer {
+/* .miniPlayer {
   width: 320px;
   position: fixed;
   bottom: 100px;
@@ -279,4 +279,4 @@
 
 .floatingBtn .close {
   display: none;
-}
+} */
